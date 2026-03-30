@@ -1,7 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 export const MetricsCharts = ({ data }) => {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    // Delay to ensure container has proper dimensions
+    const timer = setTimeout(() => setMounted(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const chartData = useMemo(() => {
     if (!data || data.length === 0) {
       // Generate some placeholder data
@@ -15,6 +23,10 @@ export const MetricsCharts = ({ data }) => {
     }
     return data;
   }, [data]);
+  
+  if (!mounted) {
+    return <div className="grid grid-cols-2 gap-4 h-full animate-pulse bg-[#1E1E1E]/50 rounded" />;
+  }
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {

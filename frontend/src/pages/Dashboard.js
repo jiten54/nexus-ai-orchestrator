@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Badge } from '../components/ui/badge';
 import { ScrollArea } from '../components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '../components/ui/dialog';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
@@ -249,6 +249,9 @@ export const Dashboard = () => {
                     <DialogContent className="bg-[#141414] border-white/10">
                       <DialogHeader>
                         <DialogTitle className="text-white">Create Workflow</DialogTitle>
+                        <DialogDescription className="text-[#666666]">
+                          Create a new distributed workflow to execute and monitor
+                        </DialogDescription>
                       </DialogHeader>
                       <div className="space-y-4 mt-4">
                         <div className="space-y-2">

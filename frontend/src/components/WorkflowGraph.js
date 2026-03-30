@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import {
   ReactFlow,
   Background,
@@ -6,6 +6,8 @@ import {
   MiniMap,
   useNodesState,
   useEdgesState,
+  Handle,
+  Position
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -22,11 +24,13 @@ const CustomNode = ({ data }) => {
   
   return (
     <div 
-      className="px-4 py-3 bg-[#141414] rounded-lg border-2 min-w-[120px] text-center transition-all"
+      className="px-4 py-3 bg-[#141414] rounded-lg border-2 min-w-[120px] text-center transition-all relative"
       style={{ borderColor, boxShadow: status === 'running' ? `0 0 20px ${borderColor}40` : 'none' }}
     >
+      <Handle type="target" position={Position.Left} style={{ background: borderColor }} />
       <div className="text-white text-sm font-medium">{data.label}</div>
       <div className="text-xs mt-1" style={{ color: borderColor }}>{status}</div>
+      <Handle type="source" position={Position.Right} style={{ background: borderColor }} />
     </div>
   );
 };
@@ -64,13 +68,13 @@ export const WorkflowGraph = ({ nodes: initialNodes, edges: initialEdges }) => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(formattedEdges);
 
   // Update nodes when props change
-  useMemo(() => {
+  useEffect(() => {
     setNodes(formattedNodes);
     setEdges(formattedEdges);
   }, [formattedNodes, formattedEdges, setNodes, setEdges]);
 
   return (
-    <div className="h-full w-full" data-testid="workflow-graph">
+    <div className="h-full w-full" style={{ minHeight: '200px' }} data-testid="workflow-graph">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -80,6 +84,7 @@ export const WorkflowGraph = ({ nodes: initialNodes, edges: initialEdges }) => {
         fitView
         fitViewOptions={{ padding: 0.2 }}
         proOptions={{ hideAttribution: true }}
+        defaultEdgeOptions={{ type: 'smoothstep' }}
       >
         <Background color="#333" gap={20} />
         <Controls className="bg-[#141414] border-white/10 [&_button]:bg-[#1E1E1E] [&_button]:border-white/10 [&_button]:text-white [&_button:hover]:bg-[#2A2A2A]" />
