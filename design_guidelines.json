@@ -1,0 +1,106 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 2 (Performance Pro / Command Center) & Archetype 4 (Swiss High-Contrast)",
+  "typography": {
+    "fonts": {
+      "headings": "Outfit",
+      "body": "Inter",
+      "mono": "JetBrains Mono"
+    },
+    "scales": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tight",
+      "h2": "text-2xl sm:text-3xl font-semibold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-medium",
+      "h4": "text-lg font-medium",
+      "body": "text-sm sm:text-base",
+      "small": "text-xs uppercase tracking-[0.2em] font-medium"
+    },
+    "rules": [
+      "Headings MUST use tight letter spacing (tracking-tight)",
+      "Overlines and labels MUST be uppercase with wide spacing (tracking-[0.2em])",
+      "Monospace MUST be used for all logs, metrics data points, and event streams"
+    ]
+  },
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#141414",
+    "surface_hover": "#1E1E1E",
+    "border": "rgba(255,255,255,0.08)",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A0A0A0",
+    "text_muted": "#666666",
+    "brand_primary": "#00E5FF",
+    "brand_secondary": "#7000FF",
+    "status": {
+      "success": "#00FF66",
+      "warning": "#FFB020",
+      "danger": "#FF3B30",
+      "info": "#007AFF"
+    },
+    "gradients": {
+      "cyan_glow": "bg-gradient-to-r from-[#00E5FF]/20 to-transparent",
+      "danger_glow": "bg-gradient-to-r from-[#FF3B30]/20 to-transparent"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "p-1, p-2, p-4, p-6, p-8, p-12",
+    "grid_system": "The 'Control Room' Grid",
+    "grid_classes": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-4 or gap-6",
+    "rules": [
+      "Every pixel must be utilized. No jagged bottoms; use h-full to stretch children.",
+      "Containers with borders MUST have internal padding (p-4 or p-6).",
+      "Dense and compact spacing for data-heavy sections."
+    ]
+  },
+  "components": {
+    "surfaces": {
+      "dashboard_cards": "bg-[#141414] border border-white/10 rounded-lg shadow-sm hover:border-white/20 transition-colors",
+      "terminal_panel": "bg-black border border-white/10 rounded-lg font-mono text-xs p-4 overflow-y-auto",
+      "glassmorphism": "backdrop-blur-xl bg-black/60 border-b border-white/10"
+    },
+    "buttons": {
+      "primary": "bg-[#00E5FF] text-black font-semibold hover:bg-[#00E5FF]/90 transition-all",
+      "secondary": "bg-transparent border border-white/20 text-white hover:bg-white/10 transition-all",
+      "danger": "bg-[#FF3B30]/10 border border-[#FF3B30]/50 text-[#FF3B30] hover:bg-[#FF3B30]/20"
+    },
+    "specific_ui": {
+      "live_workflow_graph": "Use @xyflow/react (React Flow) for node-edge graph. Nodes should have solid #141414 backgrounds, sharp borders colored by status (Green/Cyan/Red), and animated dashed edges representing data flow.",
+      "event_streaming": "Terminal style list. Each log entry should have a timestamp (text-muted), log level (colored), and message (text-secondary). Auto-scroll to bottom.",
+      "ai_brain_panel": "Show pulsing/glowing indicator for 'AI Active'. Use typewriter effect or staggered fade-in for AI explanations. High contrast text.",
+      "metrics": "Use Recharts. Line charts for latency/throughput with minimal grid lines, area gradients under lines, colored by status."
+    }
+  },
+  "motion_and_interaction": {
+    "hover_states": "Borders brighten (border-white/20), subtle lift or background lighten.",
+    "animations": [
+      "Micro-interactions on buttons (scale down 0.98 on click).",
+      "Smooth layout transitions.",
+      "Data pulses: For live metrics, slightly pulse the metric value when it updates.",
+      "Graph edges: Use animated SVG dashed lines for flow visualization."
+    ]
+  },
+  "media": {
+    "icons": "lucide-react (Dense, clean stroke icons. Size 16px or 20px).",
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1772050138768-2107c6e62a03?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGRhcmslMjB0ZWNobm9sb2d5JTIwbmV0d29yayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzc0ODQzNDU2fDA&ixlib=rb-4.1.0&q=85",
+        "category": "background",
+        "description": "Abstract green/cyan light trails on black. Use at low opacity (10-15%) in the hero/header or sidebar background for texture."
+      }
+    ],
+    "logos": "Use Lucide 'Cpu' or 'Network' icon with text 'NEXUS_AI' or 'AUTO_FLOW' as the brand logo."
+  },
+  "accessibility": {
+    "contrast": "Ensure text meets APCA/WCAG standards. No dark gray text on black background.",
+    "focus": "focus:ring-2 focus:ring-[#00E5FF] focus:outline-none",
+    "testing": "All interactive elements MUST have data-testid attributes."
+  },
+  "instructions_to_main_agent": [
+    "Build a sidebar layout for navigation, with main content area organized using CSS Grid (12 cols).",
+    "Install @xyflow/react for the workflow graph and recharts for metrics.",
+    "Use framer-motion for smooth log list entry animations and AI pulsing dots.",
+    "Ensure terminal logs are in a fixed height container with overflow-y-auto and styled scrollbars.",
+    "Mock WebSocket data with setInterval generating random logs and metric updates.",
+    "Implement Shadcn UI for dropdowns, dialogues, and tabs (e.g., switching between log views)."
+  ]
+}
