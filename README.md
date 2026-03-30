@@ -1,1 +1,97 @@
-# Here are your Instructions
+
+---
+
+## ✦ AI Brain
+
+The intelligence layer powers system awareness and decision-making:
+
+• Anomaly Detection  
+Detects abnormal system behavior using statistical and ML models  
+
+• Failure Prediction  
+Predicts workflow failures before they occur using time-series modeling  
+
+• Log Intelligence (NLP)  
+Understands logs semantically using LLMs to identify root causes  
+
+• Decision Engine  
+Suggests and executes corrective actions automatically  
+
+---
+
+## ✦ Tech Stack
+
+Backend  
+- FastAPI  
+- Python (AsyncIO)  
+- MongoDB  
+
+AI / ML  
+- OpenAI GPT (log intelligence)  
+- Time-series models (LSTM / statistical)  
+- Anomaly detection models  
+
+Frontend  
+- React  
+- React Flow (workflow graphs)  
+- Recharts (metrics)  
+- Framer Motion (animations)  
+
+DevOps Ready  
+- WebSockets (real-time updates)  
+- Docker / Kubernetes (scalable deployment)  
+
+---
+
+## ✦ Key Features
+
+• JWT-based authentication system  
+• Visual workflow builder (node-edge graphs)  
+• Live event stream and system logs  
+• AI-generated alerts and explanations  
+• Failure simulation and recovery testing  
+• Auto-retry and healing mechanisms  
+
+---
+
+## ✦ Example Use Cases
+
+• Monitoring distributed microservices  
+• Managing ETL and data pipelines  
+• Detecting failures in real-time systems  
+• Automating DevOps incident response  
+
+---
+
+## ✦ Project Structure
+
+
+nexus-ai-orchestrator/
+├── backend/
+├── frontend/
+├── models/
+├── services/
+├── requirements.txt
+└── README.md
+
+
+---
+
+## ✦ Setup
+
+Clone repository:
+
+git clone https://github.com/jiten54/nexus-ai-orchestrator.git  
+cd nexus-ai-orchestrator  
+
+Run backend:
+
+cd backend  
+pip install -r ../requirements.txt  
+uvicorn main:app --reload  
+
+Run frontend:
+
+cd frontend  
+npm install  
+npm start  
